@@ -1,0 +1,21 @@
+{
+    "name": "mihaoo/jamerson",
+    "description": "WordPress OO framework",
+    "type": "library",
+    "keywords": ["jamerson", "wordpress", "framework"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mykhailo Sukovitsyn",
+            "email": "ms2705335@gmail.com",
+            "role": "Founder"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MykhailoSukovitsyn\\": "src/"
+        }
+    },
+    "require": {},
+    "prefer-stable": true
+}
