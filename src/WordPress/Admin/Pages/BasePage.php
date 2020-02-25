@@ -77,25 +77,28 @@ class BasePage implements PageInterface
     public function addSubPage(SubPageInterface $subPage): void
     {
         if (!$this->subPages) {
-            add_action( 'admin_menu', [$this, 'addSubMenuPagesToWordPress'], 1010 );
+            add_action('admin_menu', function() {
+                foreach ($this->subPages as $page) {
+                    add_submenu_page(
+                        $this->getMenuSlug(),
+                        $page->getTitle(),
+                        $page->getMenuTitle(),
+                        $page->getCapability(),
+                        $page->getMenuSlug(),
+                        function() {}, // TODO:
+                        $page->getPosition()
+                    );
+                }
+            }, 1010);
         }
 
         $this->subPages[] = $subPage;
     }
 
 
-    public function addSubMenuPagesToWordPress(): void
+    public function removeSubPage(SubPageInterface $subPage): void
     {
-        foreach ($this->subPages as $page) {
-            add_submenu_page(
-                $this->getMenuSlug(),
-                $page->getTitle(),
-                $page->getMenuTitle(),
-                $page->getCapability(),
-                $page->getMenuSlug(),
-                function () {}, // TODO:
-                $page->getPosition()
-            );
-        }
+        // TODO
+        remove_submenu_page($this->getMenuSlug(), $subPage->getMenuSlug());
     }
 }
