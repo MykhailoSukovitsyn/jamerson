@@ -14,4 +14,6 @@ interface SubPageInterface
     public function getMenuSlug(): string;
 
     public function getPosition(): ?int;
+
+    public function isCore(): bool;
 }
