@@ -1,38 +1,35 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MykhailoSukovitsyn\WordPress\Admin\Pages\BuiltIn;
+namespace MykhailoSukovitsyn\WordPress\Admin\Pages\BuiltIn\Appearance;
 
 use MykhailoSukovitsyn\WordPress\Admin\Pages\AbstractCoreSubPage;
 
-final class Themes extends AbstractCoreSubPage
+final class Menus extends AbstractCoreSubPage
 {
     public function getTitle(): string
     {
-        return __( 'Themes' );
+        return __('Menus');
     }
-
 
     public function getMenuTitle(): string
     {
-        return __( 'Themes' );
+        return __('Menus');
     }
-
 
     public function getCapability(): string
     {
-        return current_user_can('switch_themes') ? 'switch_themes' : 'edit_theme_options';
+        return 'edit_theme_options';
     }
-
 
     public function getMenuSlug(): string
     {
-        return 'themes.php';
+        return 'nav-menus.php';
     }
-
 
     public function getPosition(): ?int
     {
-        return 5;
+        return 10;
     }
 }

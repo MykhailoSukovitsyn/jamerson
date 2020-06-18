@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MykhailoSukovitsyn\WordPress\Admin;
@@ -13,12 +14,10 @@ final class Menu
     /** @var array|PageInterface[] $pages */
     private $pages = [];
 
-
     public function __construct()
     {
         // TODO: init $corePages property with data
     }
-
 
     public function addPage(PageInterface $page): void
     {
@@ -54,7 +53,6 @@ final class Menu
 
         $this->pages[$page->getMenuSlug()] = $page;
     }
-
 
     public function removePage(PageInterface $page): void
     {

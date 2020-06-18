@@ -1,8 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MykhailoSukovitsyn\WordPress\Admin;
 
-class Toolbar
+final class Toolbar
 {
 }

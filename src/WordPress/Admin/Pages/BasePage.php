@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MykhailoSukovitsyn\WordPress\Admin\Pages;
@@ -17,7 +18,6 @@ class BasePage extends AbstractPage
 
     protected $position;
 
-
     public function __construct(
         string $title,
         string $menuTitle,
@@ -34,42 +34,35 @@ class BasePage extends AbstractPage
         $this->position = $position;
     }
 
-
     public function getTitle(): string
     {
         return $this->title;
     }
-
 
     public function getMenuTitle(): string
     {
         return $this->menuTitle;
     }
 
-
     public function getCapability(): string
     {
         return $this->capability;
     }
-
 
     public function getMenuSlug(): string
     {
         return $this->menuSlug;
     }
 
-
     public function getIcon(): string
     {
         return $this->icon;
     }
 
-
     public function getPosition(): ?int
     {
         return $this->position;
     }
-
 
     final public function isCore(): bool
     {
