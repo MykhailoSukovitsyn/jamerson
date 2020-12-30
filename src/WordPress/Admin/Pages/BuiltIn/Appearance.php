@@ -13,6 +13,7 @@ use MykhailoSukovitsyn\WordPress\Admin\Pages\BuiltIn\Appearance\{
     ThemeEditor,
     Themes
 };
+use MykhailoSukovitsyn\WordPress\Roles\Capability;
 
 final class Appearance extends AbstractCorePage
 {
@@ -25,11 +26,11 @@ final class Appearance extends AbstractCorePage
             $this->addSubPageInternal(Menus::getInstance());
         }
 
-        if (current_theme_supports('custom-header') && current_user_can('customize')) {
+        if (current_theme_supports('custom-header') && current_user_can(Capability::CUSTOMIZE)) {
             $this->addSubPageInternal(Header::getInstance());
         }
 
-        if (current_theme_supports('custom-background') && current_user_can('customize')) {
+        if (current_theme_supports('custom-background') && current_user_can(Capability::CUSTOMIZE)) {
             $this->addSubPageInternal(Background::getInstance());
         }
 
@@ -55,7 +56,9 @@ final class Appearance extends AbstractCorePage
 
     public function getCapability(): string
     {
-        return current_user_can('switch_themes') ? 'switch_themes' : 'edit_theme_options';
+        return current_user_can(Capability::SWITCH_THEMES)
+            ? Capability::SWITCH_THEMES
+            : Capability::EDIT_THEME_OPTIONS;
     }
 
     public function getMenuSlug(): string

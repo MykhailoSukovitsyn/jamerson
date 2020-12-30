@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MykhailoSukovitsyn\WordPress\Admin\Pages\BuiltIn\Appearance;
 
 use MykhailoSukovitsyn\WordPress\Admin\Pages\AbstractCoreSubPage;
+use MykhailoSukovitsyn\WordPress\Roles\Capability;
 
 final class ThemeEditor extends AbstractCoreSubPage
 {
@@ -20,7 +21,7 @@ final class ThemeEditor extends AbstractCoreSubPage
 
     public function getCapability(): string
     {
-        return 'edit_themes';
+        return Capability::EDIT_THEMES;
     }
 
     public function getMenuSlug(): string
